@@ -3,7 +3,7 @@ name: Ingest RIVM COVID19 data
 on:
   workflow_dispatch:
   schedule:
-  - cron: '09 00 * * *'
+  - cron: '20 13 * * *'
 
 jobs:
   ingest-rivm-covid19-data:
