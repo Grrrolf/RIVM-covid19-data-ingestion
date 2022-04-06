@@ -190,7 +190,7 @@ def start():
     #####################################
     # Create the connection strings
     kusto_connection_string = generate_connection_string(kusto_url)
-    ingest_connection_string = generate_connection_string( ingest_url)
+    ingest_connection_string = generate_connection_string(ingest_url)
     #####################################
     # create the clients once and reuse them.
     kusto_client = KustoClient(kusto_connection_string)
