@@ -11,7 +11,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: /
+#        working-directory: /
     env:
       APP_KEY: ${{ secrets.APP_KEY }}
       APP_ID: ${{ secrets.APP_ID }}
