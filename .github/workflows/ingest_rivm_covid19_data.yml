@@ -3,11 +3,12 @@ name: Ingest RIVM COVID19 data
 on:
   workflow_dispatch:
   schedule:
-  - cron: '07 00 * * *'
+  - cron: '09 00 * * *'
 
 jobs:
   ingest-rivm-covid19-data:
     runs-on: ubuntu-latest
+    defaults:
       run:
         shell: bash
         working-directory: /
