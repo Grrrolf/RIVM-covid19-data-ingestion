@@ -15,8 +15,7 @@ from azure.kusto.ingest import (
 )
 
 
-def generate_connection_string(
-        cluster_url: str, app_id: str, app_key: str, app_tenant: str) -> KustoConnectionStringBuilder:
+def generate_connection_string(cluster_url: str) -> KustoConnectionStringBuilder:
     return KustoConnectionStringBuilder.with_aad_application_key_authentication(
             cluster_url, os.environ.get("APP_ID"), os.environ.get("APP_KEY"), os.environ.get("APP_TENANT")
     )
@@ -190,10 +189,8 @@ def start():
 
     #####################################
     # Create the connection strings
-    kusto_connection_string = generate_connection_string(
-        kusto_url, app_key=app_key, app_id=app_id, app_tenant=app_tenant)
-    ingest_connection_string = generate_connection_string(
-        ingest_url, app_key=app_key, app_id=app_id, app_tenant=app_tenant)
+    kusto_connection_string = generate_connection_string(kusto_url)
+    ingest_connection_string = generate_connection_string( ingest_url)
     #####################################
     # create the clients once and reuse them.
     kusto_client = KustoClient(kusto_connection_string)
