@@ -180,8 +180,10 @@ def process_data(ingestion_client: BaseIngestClient,
 
 def start():
     # destination database information
-    kusto_url = os.environ.get("KUSTO_URL")
-    ingest_url = os.environ.get("INGESTION_URL")
+    # kusto_url = os.environ.get("KUSTO_URL")
+    # ingest_url = os.environ.get("INGESTION_URL")
+    kusto_url = "https://kvc37f426102d414c8388c.northeurope.kusto.windows.net"
+    ingest_url = "https://ingest-kvc37f426102d414c8388c.northeurope.kusto.windows.net"
     database_name = "covid19"
 
     #####################################
