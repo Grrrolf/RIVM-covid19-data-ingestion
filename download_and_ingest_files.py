@@ -70,10 +70,9 @@ def ingest_from_file(ingest_client: BaseIngestClient, file_path: str, database: 
 def truncate_table(kusto_client: KustoClient, database: str, table_name: str):
     query = f".drop extents <| .show table {table_name} extents | project ExtentId"
     print(f"{datetime.datetime.now()} - {query}")
-    # time.sleep(20)
     try:
         kusto_client.execute_mgmt(database, query)
-        print(f"{datetime.datetime.now()} - Truntated {table_name}")
+        print(f"{datetime.datetime.now()} - Truncated {table_name}")
         return
     except KustoClientError as ex:
         print(f"Client error while trying to execute query' on database '{database}'")
@@ -151,8 +150,6 @@ def process_data(ingestion_client: BaseIngestClient,
                    "dataformat": "SCSV"}
     }
 
-    # location = 'Output'
-
     for report, data in reports.items():
         print(25 * "=-=-")
         mapping = f"{report}_mapping"
@@ -183,8 +180,8 @@ def process_data(ingestion_client: BaseIngestClient,
 
 def start():
     # destination database information
-    kusto_url = "https://kvc37f426102d414c8388c.northeurope.kusto.windows.net"
-    ingest_url = "https://ingest-kvc37f426102d414c8388c.northeurope.kusto.windows.net"
+    kusto_url = os.environ.get("KUSTO_URLt")
+    ingest_url = os.environ.get("INGESTION_URL")
     database_name = "covid19"
 
     #####################################
