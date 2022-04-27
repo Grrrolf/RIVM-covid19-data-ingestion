@@ -27,7 +27,13 @@ jobs:
         architecture: 'x64'
     - name: "Install requirements"
       run: |
-        pip3 install -r requirements.txt
-    - name: "Run download_and_ingest_files.py"
+        echo $KUSTO_URL
+    - name: "echo env 1"
+      run: | 
+        echo $KUSTO_URL
+    - name: "echo env 1"
       run: |
-        python3 download_and_ingest_files.py
+        pip3 install -r requirements.txt
+#    - name: "Run download_and_ingest_files.py"
+#      run: |
+#        python3 download_and_ingest_files.py
