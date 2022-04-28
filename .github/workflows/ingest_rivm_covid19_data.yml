@@ -17,7 +17,7 @@ jobs:
       APP_ID: ${{ secrets.APP_ID }}
       APP_TENANT: ${{ secrets.APP_TENANT }}
       KUSTO_URL: ${{ secrets.KUSTO_URL }}
-      INGESTION_URL: ${{ secrets.INGESTION_UR }}
+      INGESTION_URL: ${{ secrets.INGESTION_URL }}
 
     steps:
     - uses: actions/checkout@v3
