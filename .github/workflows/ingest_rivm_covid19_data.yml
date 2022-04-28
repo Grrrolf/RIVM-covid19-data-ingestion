@@ -25,15 +25,9 @@ jobs:
       with:
         python-version: '3.10'
         architecture: 'x64'
-    - name: "Install requirements"
+    - name: "Install required packages"
       run: |
-        echo $KUSTO_URL
-    - name: "echo env 1"
-      run: | 
-        echo $INGESTION_URL
-#    - name: "install packages"
-#      run: |
-#        pip3 install -r requirements.txt
-#    - name: "Run download_and_ingest_files.py"
-#      run: |
-#        python3 download_and_ingest_files.py
+        pip3 install -r requirements.txt
+    - name: "Run download_and_ingest_files.py"
+      run: |
+        python3 download_and_ingest_files.py
