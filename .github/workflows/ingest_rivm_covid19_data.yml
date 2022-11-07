@@ -3,7 +3,7 @@ name: Ingest RIVM COVID19 data
 on:
   workflow_dispatch:
   schedule:
-  - cron: '00 14 * * *'
+  - cron: '00 15 * * *'
 
 jobs:
   ingest-rivm-covid19-data:
@@ -27,7 +27,7 @@ jobs:
         architecture: 'x64'
     - name: "Install required packages"
       run: |
-        pip3 install -r requirements.txt
+        pip3 install -r requirements.txt >> $GITHUB_OUTPUT
     - name: "Run download_and_ingest_files.py"
       run: |
-        python3 download_and_ingest_files.py
+        python3 download_and_ingest_files.py >> $GITHUB_OUTPUT
