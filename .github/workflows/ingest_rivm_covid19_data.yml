@@ -20,10 +20,10 @@ jobs:
       INGESTION_URL: ${{ secrets.INGESTION_URL }}
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
+        python-version: '3.12'
         architecture: 'x64'
     - name: "Install required packages"
       run: |
